@@ -68,7 +68,7 @@ describe('testMain', function() {
 
     var issue0 = nock("https://api.github.com")
     .get("/repos/testuser/Hello-World/issues/0")
-    .reply(200, JSON.stringify(data.issueList[0]) );
+    .reply(200, JSON.stringify(data.issueList[0]));
 
     it('ratio should be .5 for issue #0', function() {
       return main.titleBodyWordCountRatio("testuser", "Hello-World",0).then(function (results) 
