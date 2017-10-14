@@ -28,10 +28,10 @@ function getRepos(userName)
 	});
 }
 
-function getIssues(owner, repo )
+function getIssues(owner, repo)
 {
 	var options = {
-		url: urlRoot + "/repos/" + owner +"/" + repo + "/issues",
+		url: urlRoot + "/repos/" + owner + "/" + repo + "/issues",
 		method: 'GET',
 		headers: {
 			"content-type": "application/json",
@@ -50,10 +50,10 @@ function getIssues(owner, repo )
 	});
 }
 
-function getAnIssue(owner, repo, number )
+function getAnIssue(owner, repo, number)
 {
 	var options = {
-		url: urlRoot + "/repos/" + owner +"/" + repo + "/issues/"+number,
+		url: urlRoot + "/repos/" + owner + "/" + repo + "/issues/" + number,
 		method: 'GET',
 		headers: {
 			"content-type": "application/json",
@@ -65,6 +65,28 @@ function getAnIssue(owner, repo, number )
 	{
 		// Send a http request to url and specify a callback that will be called upon its return.
 		request(options, function (error, response, body) 
+		{
+			var obj = JSON.parse(body);
+			resolve(obj);
+		});
+	});
+}
+
+function getStargazers(owner, repo)
+{
+	var options = {
+		url: urlRoot + "/repos/" + owner + "/" + repo + "/stargazers",
+		method: 'GET',
+		headers:
+		{
+			'content-type': 'application/json',
+			'Authorization': token
+		}
+	};
+
+	return new Promise(function (resolve, reject)
+	{
+		request(options, function (error, response, body)
 		{
 			var obj = JSON.parse(body);
 			resolve(obj);
@@ -75,3 +97,4 @@ function getAnIssue(owner, repo, number )
 exports.getRepos = getRepos;
 exports.getIssues = getIssues;
 exports.getAnIssue = getAnIssue;
+exports.getStargazers = getStargazers;
