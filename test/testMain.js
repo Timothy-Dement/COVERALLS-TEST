@@ -26,7 +26,7 @@ describe('testMain', function() {
   .reply(200, JSON.stringify(data.stars));
 
   describe('#findMostFrequentAssignee()', function(){
-    TEST CASE
+    // TEST CASE
    	it('should return valid object properties', function(done) {
 
       main.findMostFrequentAssignee("testuser", "Hello-World").then(function (results) 
