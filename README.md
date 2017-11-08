@@ -10,6 +10,14 @@
 
 # Sam's Badges
 
+## Original Badge
+
 [![Coverage Status](https://coveralls.io/repos/github/sdg123/SlackBot/badge.svg?branch=master)](https://coveralls.io/github/sdg123/SlackBot?branch=master)
 
+## "&v=2.0.0" Badge
+
 [![Coverage Status](https://coveralls.io/repos/github/sdg123/SlackBot/badge.svg?branch=master&v=2.0.0)](https://coveralls.io/github/sdg123/SlackBot?branch=master)
+
+## Shields.io Badge
+
+[![Coverage Status](https://img.shields.io/coveralls/github/sdg123/SlackBot/master.svg)](https://coveralls.io/github/sdg123/SlackBot?branch=master)
