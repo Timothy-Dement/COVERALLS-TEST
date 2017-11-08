@@ -27,20 +27,20 @@ describe('testMain', function() {
 
   describe('#findMostFrequentAssignee()', function(){
     // TEST CASE
-   	it('should return valid object properties', function(done) {
+//    	it('should return valid object properties', function(done) {
 
-      main.findMostFrequentAssignee("testuser", "Hello-World").then(function (results) 
-      {
-        expect(results).to.have.property("userName");
-        expect(results).to.have.property("count");
+//       main.findMostFrequentAssignee("testuser", "Hello-World").then(function (results) 
+//       {
+//         expect(results).to.have.property("userName");
+//         expect(results).to.have.property("count");
 
-        var userName = results.userName;
-        var count    = results.count;
+//         var userName = results.userName;
+//         var count    = results.count;
 
-        // Call back to let mocha know that test case is done. Need this for asychronous operations.
-        done();
-      });
-    });
+//         // Call back to let mocha know that test case is done. Need this for asychronous operations.
+//         done();
+//       });
+//     });
 
     // TEST CASE...
     it('should find octocat with 4 issues assigned', function() {
