@@ -11,22 +11,22 @@ var data = require("../mock.json")
 // TEST SUITE FOR MOCHA //
 //////////////////////////
 
-describe('testMain', function() {
+// describe('testMain', function() {
 
-  // MOCK SERVICE
+//   // MOCK SERVICE
 
-  var mockIssuesService = nock("https://api.github.com")
-  .persist() // This will persist mock interception for lifetime of program.
-  .get("/repos/testuser/Hello-World/issues")
-  .reply(200, JSON.stringify(data.issueList));
+//   var mockIssuesService = nock("https://api.github.com")
+//   .persist() // This will persist mock interception for lifetime of program.
+//   .get("/repos/testuser/Hello-World/issues")
+//   .reply(200, JSON.stringify(data.issueList));
 
-  var mockStarsService = nock("https://api.github.com")
-  .persist()
-  .get("/repos/testuser/Hello-World/stargazers")
-  .reply(200, JSON.stringify(data.stars));
+//   var mockStarsService = nock("https://api.github.com")
+//   .persist()
+//   .get("/repos/testuser/Hello-World/stargazers")
+//   .reply(200, JSON.stringify(data.stars));
 
-  describe('#findMostFrequentAssignee()', function(){
-    // TEST CASE
+//   describe('#findMostFrequentAssignee()', function(){
+//     TEST CASE
 //    	it('should return valid object properties', function(done) {
 
 //       main.findMostFrequentAssignee("testuser", "Hello-World").then(function (results) 
@@ -42,78 +42,78 @@ describe('testMain', function() {
 //       });
 //     });
 
-    // TEST CASE...
-    it('should find octocat with 4 issues assigned', function() {
-      // it is also possible to just return a promise, without using done.
-      return main.findMostFrequentAssignee("testuser", "Hello-World").then(function (results) 
-      {
-        expect(results.userName).to.equal("octocat");
-        expect(results.count).to.equal(4);
-      });
-    });
-  });
+//     // TEST CASE...
+//     it('should find octocat with 4 issues assigned', function() {
+//       // it is also possible to just return a promise, without using done.
+//       return main.findMostFrequentAssignee("testuser", "Hello-World").then(function (results) 
+//       {
+//         expect(results.userName).to.equal("octocat");
+//         expect(results.count).to.equal(4);
+//       });
+//     });
+//   });
 
-  describe('#countClosed()', function() {
+//   describe('#countClosed()', function() {
 
-    it('should find 4 closed issues', function() {
-      return main.countClosed("testuser", "Hello-World").then(function (results) 
-      {
-        expect(results).to.equal(4);
-      });
-    }); 
+//     it('should find 4 closed issues', function() {
+//       return main.countClosed("testuser", "Hello-World").then(function (results) 
+//       {
+//         expect(results).to.equal(4);
+//       });
+//     }); 
 
-  });
+//   });
 
-  describe('#titleBodyWordCountRatio()', function() {
+//   describe('#titleBodyWordCountRatio()', function() {
 
-    var issue0 = nock("https://api.github.com")
-    .get("/repos/testuser/Hello-World/issues/0")
-    .reply(200, JSON.stringify(data.issueList[0]));
+//     var issue0 = nock("https://api.github.com")
+//     .get("/repos/testuser/Hello-World/issues/0")
+//     .reply(200, JSON.stringify(data.issueList[0]));
 
-    it('ratio should be .5 for issue #0', function() {
-      return main.titleBodyWordCountRatio("testuser", "Hello-World",0).then(function (results) 
-      {
-        expect(results).to.equal("0.5");
-      });
-    });
+//     it('ratio should be .5 for issue #0', function() {
+//       return main.titleBodyWordCountRatio("testuser", "Hello-World",0).then(function (results) 
+//       {
+//         expect(results).to.equal("0.5");
+//       });
+//     });
     
-    var issue2 = nock("https://api.github.com")
-    .get("/repos/testuser/Hello-World/issues/2")
-    .reply(200, JSON.stringify(data.issueList[2]));
+//     var issue2 = nock("https://api.github.com")
+//     .get("/repos/testuser/Hello-World/issues/2")
+//     .reply(200, JSON.stringify(data.issueList[2]));
 
-    it('should handle empty body for issue #2', function() {
-      return main.titleBodyWordCountRatio("testuser", "Hello-World", 2).then(function (results) 
-      {
-        expect(results).to.equal("NA");
-      });
-    }); 
+//     it('should handle empty body for issue #2', function() {
+//       return main.titleBodyWordCountRatio("testuser", "Hello-World", 2).then(function (results) 
+//       {
+//         expect(results).to.equal("NA");
+//       });
+//     }); 
 
 
-  });
+//   });
 
-  describe('#maxStars()', function() {
+//   describe('#maxStars()', function() {
 
-    var stargazers = nock("https://api.github.com")
-    .get("/repos/testuser/Hello-World/stargazers")
-    .reply(200, JSON.stringify(data.stars));
+//     var stargazers = nock("https://api.github.com")
+//     .get("/repos/testuser/Hello-World/stargazers")
+//     .reply(200, JSON.stringify(data.stars));
 
-    it('should return valid object properties', function () {
-      return main.maxStars("testuser", "Hello-World").then(function (results)
-      {
-        expect(results).to.have.property("userName");
-        expect(results).to.have.property("count");
-      });
+//     it('should return valid object properties', function () {
+//       return main.maxStars("testuser", "Hello-World").then(function (results)
+//       {
+//         expect(results).to.have.property("userName");
+//         expect(results).to.have.property("count");
+//       });
 
-    });
+//     });
 
-    it('should find a with 80 stargazers', function () {
-      return main.maxStars("testuser", "Hello-World").then(function (results)
-      {
-        expect(results.userName).to.equal("a");
-        expect(results.count).to.equal(80);
-      });
-    });
+//     it('should find a with 80 stargazers', function () {
+//       return main.maxStars("testuser", "Hello-World").then(function (results)
+//       {
+//         expect(results.userName).to.equal("a");
+//         expect(results.count).to.equal(80);
+//       });
+//     });
 
-  });
+//   });
 
-});
+// });
