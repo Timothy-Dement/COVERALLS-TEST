@@ -3,4 +3,4 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/sdg123/SlackBot/badge.svg?branch=master)](https://coveralls.io/github/sdg123/SlackBot?branch=master)
 
-[![Coverage Status](https://coveralls.io/repos/github/sdg123/SlackBot/badge.svg?branch=master)](https://coveralls.io/github/sdg123/SlackBot?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/sdg123/SlackBot/badge.svg?branch=master&v=2.0.0)](https://coveralls.io/github/sdg123/SlackBot?branch=master)
