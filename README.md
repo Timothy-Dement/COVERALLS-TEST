@@ -1,0 +1,1 @@
+[![Coverage Status](https://img.shields.io/coveralls/github/Timothy-Dement/COVERALLS-TEST.svg)](https://coveralls.io/github/Timothy-Dement/COVERALLS-TEST)
