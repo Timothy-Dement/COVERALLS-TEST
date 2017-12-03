@@ -1,0 +1,14 @@
+---
+  language: "node_js"
+  node_js: 
+    - "stable"
+  after_success: 
+    - "npm run coveralls"
+  notifications: 
+    webhooks: 
+      urls: 
+        - "https://mklxjsntay.localtunnel.me/travis/G89NA6614"
+      on_success: "always"
+      on_failure: "always"
+      on_cancel: "never"
+      on_error: "never"
